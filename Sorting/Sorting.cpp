@@ -1,4 +1,5 @@
 #include "Sorting.hpp"
+#include "Helper.hpp"
 #include <stdlib.h>
 #include <string.h>
 
@@ -92,7 +93,10 @@ template <class T> void quicksort(T* data, int size)
 		return data;
 	}
 	int mid = (size + 1) / 2;
-
+	int pivot = medianof3(data, (data + mid - 1), (data + size - 1));
+	Swap(pivot, data);
+	int left = 0;
+	int right = size - 1;
 }
 
 /*
