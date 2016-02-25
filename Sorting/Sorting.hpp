@@ -99,8 +99,27 @@ template <class T> void quicksort(T* data, int size)
 		return;
 	}
 	int mid = (size + 1) / 2;
-	T pivot = medianof3(data, (data + mid - 1), (data + size - 1));
+	int pivotPoint = medianof3(data, (data + mid - 1), (data + size - 1));
+	T pivot = *data;
+	T* pivotPointer = data;
+	switch(pivotPoint)
+	{
+	case 1:
+		pivot = *data;
+		pivotPointer = data;
+		break;
+	case 2:
+		pivot = *(data + mid - 1);
+		pivotPointer = (data + mid - 1);
+		break;
+	case 3:
+		pivot = *(data + size - 1);
+		pivotPointer = (data + size - 1);
+		break;
+	}
+	T temp = *(data);
 	Swap(pivot, *data);//check
+	Swap(temp, *(pivotPointer)); 
 	int left = 0;
 	int right = size - 1;
 	do
@@ -122,7 +141,7 @@ template <class T> void quicksort(T* data, int size)
 	}
 	Swap(*(data), *(data + left));
 	quicksort(data, left - 1);
-	quicksort((data + left + 1), size - 1);
+	quicksort((data + left + 1), size - 1 - left);
 }
 
 /*
