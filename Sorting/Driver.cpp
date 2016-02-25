@@ -11,7 +11,7 @@ enum sort_t  {SELECTION, INSERTION, MERGE, QUICK};
 enum input_t {SORTED, CONSTANT, RANDOM};
 
 #define DEFAULT_N     10
-#define DEFAULT_ALG   QUICK
+#define DEFAULT_ALG   MERGE
 #define DEFAULT_INPUT RANDOM
 
 #define N_ARG         1

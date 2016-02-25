@@ -86,9 +86,9 @@ template <class T> void mergesort(T* data, int size, T* temp)
 
 			s++;
 		}
-		mergecopy(left, mid, temp + s);
-		mergecopy(right, size - mid, temp + s);
-		mergecopy(temp, size, data - 1);
+		mergecopy(left, mid - 1, temp + s);
+		mergecopy(right, size - mid - 1, temp + s);
+		mergecopy(temp, size - 1, data);
 	}
 }
 
@@ -122,6 +122,8 @@ template <class T> void quicksort(T* data, int size)
 	Swap(temp, *(pivotPointer)); 
 	int left = 0;
 	int right = size - 1;
+	int l = left;
+	int r = right;
 	do
 	{
 		while (left < right && *(data + left) <= *(data))
@@ -140,8 +142,14 @@ template <class T> void quicksort(T* data, int size)
 		left--;
 	}
 	Swap(*(data), *(data + left));
-	quicksort(data, left - 1);
-	quicksort((data + left + 1), size - 1 - left);
+	if (l < right)
+	{
+		quicksort(data, left);
+	}
+	if (left < r)
+	{
+		quicksort((data + left + 1), size - left - 1);
+	}
 }
 
 /*
