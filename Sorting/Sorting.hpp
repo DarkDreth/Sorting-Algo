@@ -87,9 +87,9 @@ template <class T> void mergesort(T* data, int size, T* temp)
 			s++;
 		}
 
-		mergecopy(left + l, mid, temp + s); //here is our issue
+		mergecopy(left + l, mid - l, temp + s); //mid - l (NOT 1)
 		s = s + mid - l;
-		mergecopy(right + r, size - mid - 1, temp + s);
+		mergecopy(right + r, size - mid - r, temp + s);
 		mergecopy(temp, size, data);
 	}
 }

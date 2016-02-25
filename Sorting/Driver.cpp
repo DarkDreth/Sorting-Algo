@@ -10,7 +10,7 @@ using namespace std;
 enum sort_t  {SELECTION, INSERTION, MERGE, QUICK};
 enum input_t {SORTED, CONSTANT, RANDOM};
 
-#define DEFAULT_N     10
+#define DEFAULT_N     100000
 #define DEFAULT_ALG   MERGE
 #define DEFAULT_INPUT RANDOM
 
