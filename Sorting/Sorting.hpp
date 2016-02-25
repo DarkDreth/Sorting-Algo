@@ -86,7 +86,8 @@ template <class T> void mergesort(T* data, int size, T* temp)
 
 			s++;
 		}
-		mergecopy(left + l, mid, temp + s);
+
+		mergecopy(left + l, mid, temp + s); //here is our issue
 		s = s + mid - l;
 		mergecopy(right + r, size - mid - 1, temp + s);
 		mergecopy(temp, size, data);
@@ -119,7 +120,7 @@ template <class T> void quicksort(T* data, int size)
 		break;
 	}
 	T temp = *(data);
-	Swap(pivot, *data);//check
+	Swap(pivot, *data);
 	Swap(temp, *(pivotPointer)); 
 	int left = 0;
 	int right = size - 1;
